@@ -49,13 +49,14 @@ ctx.textBaseline = 'middle'; // Align text vertically
 ctx.fillText(formattedTime, width / 2, height / 2);
 
   // Lower labels: DAYS, HOURS, MINUTES, SECONDS
-  const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
-  const labelX = [300, 500, 700, 900]; // x-positions for labels
-  ctx.font = '30px "Courier New"';
+  // Lower labels: DAYS, HOURS, MINUTES, SECONDS
+const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
+const labelX = [300, 500, 700, 900]; // x-positions for labels
+ctx.font = '30px "Courier New"';
 
-  labels.forEach((label, index) => {
-    ctx.fillText(label, labelX[index], 300); // Position below each digit pair
-  });
+labels.forEach((label, index) => {
+  ctx.fillText(label, labelX[index], 340);
+});
 
   // Return the image buffer
   return canvas.toBuffer();
