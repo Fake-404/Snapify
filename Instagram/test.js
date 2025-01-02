@@ -1,5 +1,12 @@
 import { createCanvas } from 'canvas';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Register custom font
+const fontPath = path.join(__dirname, 'Digital Regular.ttf');
+registerFont(fontPath, { family: 'Digital Regular' });
+
 /**
  * Generate an image buffer for the "System Uptime" design.
  * @param {Object} uptime - The uptime data.
@@ -37,7 +44,7 @@ export async function generateUptimeImage(uptime) {
     const x = sectionWidth * index + sectionWidth / 2;
 
     // Number text
-    ctx.font = '120px "Courier New"';
+    ctx.font = '120px "Digital Regular"';
     ctx.fillText(String(value).padStart(2, '0'), x, 200);
 
     // Label text
