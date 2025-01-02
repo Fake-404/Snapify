@@ -36,33 +36,30 @@ export async function generateUptimeImage(uptime) {
   ctx.font = '40px "Courier New"';
   ctx.textAlign = 'center';
   ctx.fillText('SYSTEM UPTIME...', width / 2, 80);
-  
-  // Time format: 12:34:56:78
-const formattedTime = `${String(days).padStart(2, '0')} ${String(hours).padStart(2, '0')} ${String(minutes).padStart(2, '0')} ${String(seconds).padStart(2, '0')}`;
 
-// Set font and measure text
-ctx.font = '220px "Digital Regular"';
-ctx.textAlign = 'center';
-ctx.textBaseline = 'middle'; // Align text vertically
+  // Time format: 12 34 56 78
+  const formattedTime = `${String(days).padStart(2, '0')} ${String(hours).padStart(2, '0')} ${String(minutes).padStart(2, '0')} ${String(seconds).padStart(2, '0')}`;
 
-// Center the text in the middle of the canvas
-ctx.fillText(formattedTime, width / 2, height / 2);
+  // Set font and measure text
+  ctx.font = '220px "Digital Regular"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle'; // Align text vertically
 
-// Lower labels: DAYS, HOURS, MINUTES, SECONDS
-const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
-const timeSegments = [days, hours, minutes, seconds];
-const segmentPadding = 150;
-ctx.font = '30px "Courier New"';
-ctx.textAlign = 'center';
+  // Center the text in the middle of the canvas
+  ctx.fillText(formattedTime, width / 2, height / 2);
 
-const offsetX = -400; // Adjust this value to shift all labels to the left
-const segmentPadding = 50; // Spacing between each number and label
+  // Lower labels: DAYS, HOURS, MINUTES, SECONDS
+  const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
+  const timeSegments = [days, hours, minutes, seconds];
+  const offsetX = -400; // Adjust this value to shift all labels to the left
+  const segmentPadding = 150; // Spacing between each number and label
+  ctx.font = '30px "Courier New"';
+  ctx.textAlign = 'center';
 
-timeSegments.forEach((_, index) => {
-  const segmentX = width / 2 + offsetX + index * (150 + segmentPadding);
-  ctx.fillText(labels[index], segmentX, height / 2 + 120); // Place labels below the numbers
-});
-
+  timeSegments.forEach((_, index) => {
+    const segmentX = width / 2 + offsetX + index * (150 + segmentPadding);
+    ctx.fillText(labels[index], segmentX, height / 2 + 120); // Place labels below the numbers
+  });
 
   // Return the image buffer
   return canvas.toBuffer();
