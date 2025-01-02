@@ -41,7 +41,7 @@ export async function generateUptimeImage(uptime) {
 const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
 // Set font and measure text
-ctx.font = '150px "Digital Regular"';
+ctx.font = '180px "Digital Regular"';
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle'; // Align text vertically
 
