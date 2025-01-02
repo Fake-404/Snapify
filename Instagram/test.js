@@ -52,7 +52,7 @@ export async function generateUptimeImage(uptime) {
   const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
   const timeSegments = [days, hours, minutes, seconds];
   const offsetX = -435; // Adjust this value to shift all labels to the left
-  const segmentPadding = 140; // Spacing between each number and label
+  const segmentPadding = 135; // Spacing between each number and label
   ctx.font = '30px "Courier New"';
   ctx.textAlign = 'center';
 
