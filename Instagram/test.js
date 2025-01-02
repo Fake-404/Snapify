@@ -41,7 +41,7 @@ export async function generateUptimeImage(uptime) {
   const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   
   // Time rendering
-  ctx.font = '120px "Digital Regular"';
+  ctx.font = '150px "Digital Regular"';
   ctx.fillText(formattedTime, width / 2, 200);
 
   // Lower labels: DAYS, HOURS, MINUTES, SECONDS
