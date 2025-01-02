@@ -55,7 +55,7 @@ const segmentPadding = 150;
 ctx.font = '30px "Courier New"';
 ctx.textAlign = 'center';
 
-const offsetX = -350; // Adjust this value to shift all labels to the left
+const offsetX = -400; // Adjust this value to shift all labels to the left
 const segmentPadding = 50; // Spacing between each number and label
 
 timeSegments.forEach((_, index) => {
