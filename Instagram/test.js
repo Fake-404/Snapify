@@ -55,11 +55,14 @@ const segmentPadding = 150;
 ctx.font = '30px "Courier New"';
 ctx.textAlign = 'center';
 
-// Calculate positions for each label
+const offsetX = -350; // Adjust this value to shift all labels to the left
+const segmentPadding = 50; // Spacing between each number and label
+
 timeSegments.forEach((_, index) => {
-  const segmentX = width / 2 - 300 + index * (150 + segmentPadding); // Adjust the -300 and 150 for alignment
+  const segmentX = width / 2 + offsetX + index * (150 + segmentPadding);
   ctx.fillText(labels[index], segmentX, height / 2 + 120); // Place labels below the numbers
 });
+
 
   // Return the image buffer
   return canvas.toBuffer();
