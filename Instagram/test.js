@@ -51,13 +51,13 @@ ctx.fillText(formattedTime, width / 2, height / 2);
 // Lower labels: DAYS, HOURS, MINUTES, SECONDS
 const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
 const timeSegments = [days, hours, minutes, seconds];
+const segmentPadding = 80;
 ctx.font = '30px "Courier New"';
 ctx.textAlign = 'center';
 
 // Calculate positions for each label
-timeSegments.forEach((segment, index) => {
-  const segmentWidth = ctx.measureText(String(segment).padStart(2, '0')).width;
-  const segmentX = (width / 2) - (3 * segmentWidth) + (index * (2 * segmentWidth + 20)); // Adjust spacing
+timeSegments.forEach((_, index) => {
+  const segmentX = width / 2 - 300 + index * (150 + segmentPadding); // Adjust the -300 and 150 for alignment
   ctx.fillText(labels[index], segmentX, height / 2 + 120); // Place labels below the numbers
 });
 
