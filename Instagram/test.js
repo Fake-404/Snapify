@@ -36,16 +36,17 @@ export async function generateUptimeImage(uptime) {
   ctx.font = '40px "Courier New"';
   ctx.textAlign = 'center';
   ctx.fillText('SYSTEM UPTIME...', width / 2, 80);
-
-  // Time format: 12:34:56:78
-  const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   
-  ctx.font = '150px "Digital Regular"';
-  const textHeight = ctx.measureText(formattedTime).actualBoundingBoxDescent + ctx.measureText(formattedTime).actualBoundingBoxAscent;
+  // Time format: 12:34:56:78
+const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-  // Center the text vertically
-  const verticalCenter = height / 2 - textHeight / 2;
-  ctx.fillText(formattedTime, width / 2, verticalCenter);
+// Set font and measure text
+ctx.font = '150px "Digital Regular"';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle'; // Align text vertically
+
+// Center the text in the middle of the canvas
+ctx.fillText(formattedTime, width / 2, height / 2);
 
   // Lower labels: DAYS, HOURS, MINUTES, SECONDS
   const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
