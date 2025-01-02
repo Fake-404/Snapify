@@ -1,5 +1,4 @@
 import { createCanvas, registerFont } from 'canvas';
-
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -38,22 +37,12 @@ export async function generateUptimeImage(uptime) {
   ctx.textAlign = 'center';
   ctx.fillText('SYSTEM UPTIME...', width / 2, 80);
 
-  // Time sections
-  const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
-  const values = [days, hours, minutes, seconds];
-  const sectionWidth = width / values.length;
-
-  values.forEach((value, index) => {
-    const x = sectionWidth * index + sectionWidth / 2;
-
-    // Number text
-    ctx.font = '120px "Digital Regular"';
-    ctx.fillText(String(value).padStart(2, '0'), x, 200);
-
-    // Label text
-    ctx.font = '30px "Courier New"';
-    ctx.fillText(labels[index], x, 300);
-  });
+  // Time format: 12:34:56:78
+  const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  
+  // Number text
+  ctx.font = '120px "Digital Regular"';
+  ctx.fillText(formattedTime, width / 2, 200);
 
   // Return the image buffer
   return canvas.toBuffer();
