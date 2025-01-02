@@ -40,9 +40,12 @@ export async function generateUptimeImage(uptime) {
   // Time format: 12:34:56:78
   const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   
-  // Time rendering
   ctx.font = '150px "Digital Regular"';
-  ctx.fillText(formattedTime, width / 2, 200);
+  const textHeight = ctx.measureText(formattedTime).actualBoundingBoxDescent + ctx.measureText(formattedTime).actualBoundingBoxAscent;
+
+  // Center the text vertically
+  const verticalCenter = height / 2 - textHeight / 2;
+  ctx.fillText(formattedTime, width / 2, verticalCenter);
 
   // Lower labels: DAYS, HOURS, MINUTES, SECONDS
   const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
