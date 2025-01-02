@@ -51,7 +51,7 @@ ctx.fillText(formattedTime, width / 2, height / 2);
 // Lower labels: DAYS, HOURS, MINUTES, SECONDS
 const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
 const timeSegments = [days, hours, minutes, seconds];
-const segmentPadding = 80;
+const segmentPadding = 150;
 ctx.font = '30px "Courier New"';
 ctx.textAlign = 'center';
 
