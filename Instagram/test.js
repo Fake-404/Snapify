@@ -40,9 +40,18 @@ export async function generateUptimeImage(uptime) {
   // Time format: 12:34:56:78
   const formattedTime = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   
-  // Number text
+  // Time rendering
   ctx.font = '120px "Digital Regular"';
   ctx.fillText(formattedTime, width / 2, 200);
+
+  // Lower labels: DAYS, HOURS, MINUTES, SECONDS
+  const labels = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS'];
+  const labelX = [300, 500, 700, 900]; // x-positions for labels
+  ctx.font = '30px "Courier New"';
+
+  labels.forEach((label, index) => {
+    ctx.fillText(label, labelX[index], 300); // Position below each digit pair
+  });
 
   // Return the image buffer
   return canvas.toBuffer();
