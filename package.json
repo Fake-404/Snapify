@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@napi-rs/canvas": "^0.1.65",
+		"canvas": "^2.11.2",
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
