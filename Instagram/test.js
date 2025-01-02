@@ -8,6 +8,8 @@ const __dirname = path.dirname(__filename);
 // Register custom font
 const fontPath = path.join(__dirname, 'Digital Regular.ttf');
 registerFont(fontPath, { family: 'Digital Regular' });
+const fontPath2 = path.join(__dirname, 'VacerSansThinPersonal.ttf');
+registerFont(fontPath2, { family: 'VacerSansThinPersonal' });
 
 /**
  * Generate an image buffer for the "System Uptime" design.
@@ -33,9 +35,9 @@ export async function generateUptimeImage(uptime) {
 
   // Title text
   ctx.fillStyle = '#00ffff';
-  ctx.font = '40px "Courier New"';
+  ctx.font = '40px "VacerSansThinPersonal"';
   ctx.textAlign = 'center';
-  ctx.fillText('SYSTEM UPTIME...', width / 2, 80);
+  ctx.fillText('SYSTEM UPTIME', width / 2, 80);
 
   // Time format: 12 34 56 78
   const formattedTime = `${String(days).padStart(2, '0')} ${String(hours).padStart(2, '0')} ${String(minutes).padStart(2, '0')} ${String(seconds).padStart(2, '0')}`;
