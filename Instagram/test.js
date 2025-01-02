@@ -35,7 +35,7 @@ export async function generateUptimeImage(uptime) {
 
   // Title text
   ctx.fillStyle = '#00ffff';
-  ctx.font = '40px "VacerSansThinPersonal"';
+  ctx.font = '80px "VacerSansThinPersonal"';
   ctx.textAlign = 'center';
   ctx.fillText('SYSTEM UPTIME', width / 2, 80);
 
